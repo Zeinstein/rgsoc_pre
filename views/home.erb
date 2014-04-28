@@ -1,0 +1,18 @@
+<h2>Főoldal - Kívánságlista</h2>
+
+<% unless logged_in? %>
+  <p class="error">Jelentkezz be fent, hogy körülnézhess!</p>
+<% else %>
+  <% if @users.empty? %>
+    <p>Nincsenek?! Gyere vissza később, vagy akár te is <a href="/users/new">regisztrálhatsz</a>.</p>
+  <% else %>
+    <p><a href="/wishes/">Saját kívánságok megtekintése</a></p>
+    
+    <p>Kiknek a kívánságait tekintheted meg?</p>
+    <ul>
+    <% @users.each do |user| %>
+      <%= user_li(user) %>
+    <% end %>
+    </ul>
+  <% end %>
+<% end %>

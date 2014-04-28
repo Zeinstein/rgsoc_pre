@@ -1,0 +1,7 @@
+<h2>Új kívánság lejegyzése</h2>
+
+<form action="/wishes" method="post">
+  <%= form_field "Kívánság", @wish, :body, :textarea %>
+  <p><input type="submit" value="Mehet"/></p>
+</form>
+

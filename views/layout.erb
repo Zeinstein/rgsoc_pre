@@ -1,0 +1,62 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html lang='en-US' xml:lang='en-US' xmlns='http://www.w3.org/1999/xhtml'>
+  <head>
+    <meta content='text/html; charset=utf-8' http-equiv='Content-Type' />
+    <title>Kívánságlista</title>
+<% if logged_in? %>
+    <link href="/<%= current_user.color %>_design.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<% else %>
+    <link href="/design.css" media="screen, projection" rel="stylesheet" type="text/css" />
+<% end %>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.js" type="text/javascript" charset="utf-8"></script>
+    <script src="/application.js" type="text/javascript" charset="utf-8"></script>
+  </head>
+
+  <body>
+    <div class='container'>
+      <div id="header">
+        <h1>
+          <a href="/">
+            Kívánságlista
+          </a>
+        </h1>
+        <div id="auth">
+<% if logged_in? %>
+          <strong><%= current_user.login %></strong><br/>
+          <a href="/users/<%= current_user.id %>">profil</a> |
+          <a href="/logout">kijelentkezés</a>
+<% else %>
+          <form action="/login" method="POST">
+            <div>
+              <input type="text" id="user" name="user" /><br/>
+              <input type="password" id="pass" name="pass" /><br/>
+              <input type="submit" value="Ok" /> | <a href="/users/new">regisztráció</a>
+            </div>
+          </form>
+<% end %>
+        </div>
+      </div>
+      <ul id="nav">
+        <li><a href="/">Főoldal</a></li>
+<% if logged_in? %>
+        <li><a href="/users">Felhasználók</a></li>
+        <li><a href="/wishes">Kívánságaim</a></li>
+<% end %>
+      </ul>
+      <div id="content">
+<% if notice = session.delete(:notice) %>
+        <p class="notice"><%= notice %></p>
+<% end %>
+<% if error = session.delete(:error) %>
+        <p class="error"><%= error %></p>
+<% end %>
+        <%= yield %>
+      </div>
+      <div id="footer">
+        <small>Copyright © 2010, BME Matematika Intézet</small>
+      </div>
+    </div>
+  </body>
+</html>
+

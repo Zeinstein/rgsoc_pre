@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #eee;
+  text-align: center;
+  color: #222;
+
+  font: 12pt Helvetica,Arial,sans-serif;
+}
+
+.container {
+  margin: 20px auto;
+  border: 1px solid #333;
+  padding: 0;
+  background-color: #fff;
+  width: 700px;
+  text-align: left;
+}
+
+#header {
+  position: relative;
+  border-bottom: 1px solid #333;
+  padding: 1em;
+  height: 60px;
+  background-color: #ddd;
+  background-image: url(images/logo.png);
+  background-position: 12px 12px;
+  background-repeat: no-repeat;
+}
+#header h1 {
+  margin-top: 0;
+  margin-left: 48px;
+  line-height: 60px;
+  font-size: 2.5em;
+}
+#header h1 a {
+  text-decoration: none;
+  color: #333;
+}
+
+#auth {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  background-color: #ccc;
+}
+#nav li {
+  display: inline;
+  margin: 0;
+  padding: 0 0.5em;
+}
+#nav li a {
+  color: #555;
+  text-decoration: none;
+}
+#nav li a:hover {
+  color: #222;
+}
+
+#content {
+  padding: 1em;
+}
+
+#footer {
+  border-top: 1px solid #bbb;
+  padding: 0.25em;
+  text-align: center;
+}
+
+a { color: #555; }
+a:hover { color: #666; }
+a:active { color: #777; }
+
+.notice {
+  color: #090;
+  background-color: #bfb;
+}
+
+.error {
+  color: #900;
+  background-color: #fbb;
+}
+
+.placeholder {
+  color: #888;
+}

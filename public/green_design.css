@@ -1,0 +1,92 @@
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #dfd;
+  text-align: center;
+  color: #050;
+
+  font: 12pt Helvetica,Arial,sans-serif;
+}
+
+.container {
+  margin: 20px auto;
+  border: 1px solid #242;
+  padding: 0;
+  background-color: #efe;
+  width: 700px;
+  text-align: left;
+}
+
+#header {
+  position: relative;
+  border-bottom: 1px solid #242;
+  padding: 1em;
+  height: 60px;
+  background-color: #cec;
+  background-image: url(images/green_logo.png);
+  background-position: 12px 12px;
+  background-repeat: no-repeat;
+}
+#header h1 {
+  margin-top: 0;
+  margin-left: 48px;
+  line-height: 60px;
+  font-size: 2.5em;
+}
+#header h1 a {
+  text-decoration: none;
+  color: #090;
+}
+
+#auth {
+  position: absolute;
+  top: 1em;
+  right: 1em;
+}
+
+#nav {
+  list-style-type: none;
+  margin: 0;
+  padding: 0.25em 0.5em;
+  background-color: #bdb;
+}
+#nav li {
+  display: inline;
+  margin: 0;
+  padding: 0 0.5em;
+}
+#nav li a {
+  color: #464;
+  text-decoration: none;
+}
+#nav li a:hover {
+  color: #131;
+}
+
+#content {
+  padding: 1em;
+}
+
+#footer {
+  border-top: 1px solid #aca;
+  padding: 0.25em;
+  text-align: center;
+}
+
+a { color: #464; }
+a:hover { color: #575; }
+a:active { color: #686; }
+
+.notice {
+  color: #090;
+  background-color: #bfb;
+}
+
+.error {
+  color: #900;
+  background-color: #fbb;
+}
+
+.placeholder {
+  color: #888;
+}

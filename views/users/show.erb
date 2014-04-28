@@ -1,0 +1,37 @@
+<h2><%= @user.name || @user.login %></h2>
+
+<dl>
+  <dt>Felhasználónév:</dt>
+  <dd><%= @user.login %></dd>
+  <dt>Regisztráció dátuma:</dt>
+  <dd><%= @user.created_at.strftime("%Y.%m.%d %H:%M") %></dd>
+<% if @user == current_user %>
+  <dt>Email:</dt>
+  <dd><%= @user.email %></dd>
+<% end %>
+</dl>
+
+<% if @user == current_user %>
+<p>
+  <a href="/users/<%= @user.id %>/edit">szerkesztés</a> |
+  <a href="/users/<%= @user.id %>/delete">törlés</a>
+</p>
+<% end %>
+
+<% if @wishes.empty? %>
+<p>Nincsenek?! Gyere vissza később!</p>
+<% else %>
+<p><%= @user.name || @user.login %> kívánságai:</p>
+<ul>
+<% @wishes.each do |wish| %>
+  <%= wish_li(wish) %>
+<% end %>
+</ul>
+<% end %>
+
+<% if @user == current_user %>
+<p><a href="/wishes/new">Új kívánság hozzáadása</a></p>
+<% else %>
+<p><a href="/wishes/">Saját kívánságok megtekintése</a></p>
+<% end %>
+

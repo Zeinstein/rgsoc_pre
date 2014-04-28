@@ -1,0 +1,29 @@
+<h2><%= @wish.body %></h2>
+
+<% if current_user.id == @wish.user_id %>
+<p>
+  <a href="/wishes/<%= @wish.id %>/edit">szerkesztés</a> |
+  <a href="/wishes/<%= @wish.id %>/delete">törlés</a>
+</p>
+<% else %>
+  <form action="/comments" method="post">
+    <%= form_field "Új hozzászólás", @comment, :body, :textarea %>
+    <input type="hidden" id="comment_wish_id" name="comment[wish_id]" value="<%= @wish.id %>">
+    <input type="hidden" id="comment_user_id" name="comment[user_id]" value="<%= current_user.id %>">
+    <p><input type="submit" value="Mehet"/></p>
+  </form>
+  <% if @comments.empty? %>
+    <p>Nincsenek hozzászólások?! Gyere vissza később, vagy akár te is <label for="comment_body">írhatsz egyet</label>.</p>
+  <% else %>
+    <p><a href="/commentelniakarunk">Írj új hozzászólást!</a></p>
+    <dl>
+    <% @comments.each do |comment| %>
+      <% user = User.filter(:id => comment.user_id) %>
+      <dt><b><%= user.first.name %></b> | <%= comment.created_at %></dt>
+      <dd><%= comment.body %></dd>
+      </li>
+    <% end %>
+    </ul>
+  <% end %>
+<% end %>
+

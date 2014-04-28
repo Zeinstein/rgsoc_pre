@@ -1,0 +1,14 @@
+<h2>Kívánságaim</h2>
+
+<% if @wishes.empty? %>
+<p>Nincsenek?! Miért nem <a href="/wishes/new">jegyzel le</a> néhányat?</p>
+<% else %>
+<a href="/wishes/new">Új kívánság lejegyzése</a>
+
+<ul>
+<% @wishes.each do |wish| %>
+  <%= wish_li(wish) %>
+<% end %>
+</ul>
+<% end %>
+
